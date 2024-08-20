@@ -2,7 +2,7 @@
     "exp" : "polyglot-ko-1.3b-lora_1",
     "model" : {
             "base" : "EleutherAI/polyglot-ko-1.3b",
-            "load_from" : "./exp/polyglot-ko-1.3b-lora/2/checkpoint-2000",
+            "load_from" : "./exp/polyglot-ko-1.3b-lora/0/checkpoint-2240",
             "embedding_model" : "intfloat/multilingual-e5-small"
         },
     

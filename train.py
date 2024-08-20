@@ -29,6 +29,7 @@ def main(config):
     # 저장 되는 구조
     # exp(root) / exp_name / mmdd+time
     exp = config["experiment"]["name"]
+    os.makedirs(osp.join('./exp', exp), exist_ok=True)
     exp_num = len(os.listdir(osp.join('./exp', exp)))
     save_path = osp.join('./exp', exp, str(exp_num))
 
