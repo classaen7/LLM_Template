@@ -1,6 +1,6 @@
-# Custom
 /data/
-/results/
+/exp/
+/submission/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
