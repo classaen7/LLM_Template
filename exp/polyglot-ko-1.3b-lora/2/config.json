@@ -1,0 +1,50 @@
+{
+    "experiment": {
+        "name": "polyglot-ko-1.3b-lora"
+    },
+    "dataset": {
+        "root": "./data/",
+        "split_ratio": 0.1,
+        "tokenizer_args": {
+            "padding": true,
+            "truncation": true
+        }
+    },
+    "trainer": {
+        "model": {
+            "pretrained_model_name_or_path": "EleutherAI/polyglot-ko-1.3b",
+            "device_map": "auto",
+            "torch_dtype": "bfloat16",
+            "trust_remote_code": true
+        },
+        "train_args": {
+            "eval_strategy": "steps",
+            "eval_steps": 50,
+            "learning_rate": 2e-05,
+            "per_device_train_batch_size": 4,
+            "per_device_eval_batch_size": 4,
+            "num_train_epochs": 20,
+            "weight_decay": 0.01,
+            "logging_dir": "./logs",
+            "logging_steps": 10,
+            "prediction_loss_only": true,
+            "max_seq_length": 512,
+            "load_best_model_at_end": true
+        },
+        "efficiency": {
+            "use_lora": true,
+            "use_bnb": false,
+            "lora": {
+                "r": 32,
+                "task_type": "CAUSAL_LM"
+            },
+            "bnb": {
+                "use": false,
+                "load_in_4bit": true,
+                "bnb_4bit_use_double_quant": true,
+                "bnb_4bit_quant_type": "nf4",
+                "bnb_4bit_compute_dtype": "bfloat16"
+            }
+        }
+    }
+}
